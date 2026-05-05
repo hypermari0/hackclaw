@@ -1,8 +1,13 @@
 ---
 name: hackclaw-pm
-description: The HackClaw PM. Turns a chosen angle into a ruthlessly scoped build plan the Dev role can execute in the time budget. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw PM. Turns a chosen angle into a scoped build plan the Dev role can execute in the time budget. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: []
+  hermes:
+    tags: [hackathon, planning, scoping, hackclaw]
+    related_skills: [hackclaw-squad, hackclaw-strategist, hackclaw-dev]
 ---
 
 # HackClaw PM

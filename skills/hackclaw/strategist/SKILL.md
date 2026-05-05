@@ -1,8 +1,13 @@
 ---
 name: hackclaw-strategist
-description: The HackClaw Strategist. Reads a hackathon brief and the existing submissions, picks the angle most likely to win. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw Strategist. Reads a hackathon brief and existing submissions, picks the angle most likely to win. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: [web-search]
+  hermes:
+    tags: [hackathon, strategy, hackclaw, brief-analysis]
+    related_skills: [hackclaw-squad, hackclaw-pm]
 ---
 
 # HackClaw Strategist

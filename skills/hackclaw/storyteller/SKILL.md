@@ -1,8 +1,13 @@
 ---
 name: hackclaw-storyteller
-description: The HackClaw Storyteller. Writes the project page HTML, README, and demo script for what the squad has built. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw Storyteller. Writes the project page HTML, README, and demo script for what the squad has built. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: []
+  hermes:
+    tags: [hackathon, copywriting, narrative, demo-script, hackclaw]
+    related_skills: [hackclaw-squad, hackclaw-designer, hackclaw-submitter]
 ---
 
 # HackClaw Storyteller

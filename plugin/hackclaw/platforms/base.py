@@ -1,4 +1,4 @@
-"""HackathonPlatform protocol — uniform interface every platform adapter implements."""
+"""HackathonPlatform protocol. Uniform interface every platform adapter implements."""
 
 from typing import Protocol
 

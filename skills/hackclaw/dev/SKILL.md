@@ -1,8 +1,13 @@
 ---
 name: hackclaw-dev
-description: The HackClaw Dev. Writes the code, deploys it. Delegates to Hermes's bundled claude-code subagent for the actual coding work. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw Dev. Writes the code, deploys it. Delegates to the bundled claude-code skill for the actual coding work. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: [claude-code, shell]
+  hermes:
+    tags: [hackathon, coding, deploy, hackclaw, claude-code]
+    related_skills: [hackclaw-squad, claude-code, hackclaw-pm]
 ---
 
 # HackClaw Dev

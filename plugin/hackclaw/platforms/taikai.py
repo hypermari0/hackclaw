@@ -71,20 +71,52 @@ class TaikaiPlatform(HackathonPlatform):
     async def _mcp_call(self, tool_name: str, args: dict) -> dict:
         """Dispatch a call to the TAIKAI MCP via Hermes.
 
-        TODO: replace this stub with the actual Hermes MCP-dispatch API once
-        confirmed against the upstream Hermes plugin authoring docs. The
-        likely shape is something like:
+        Hermes versions have shipped a few different shapes for in-process
+        MCP dispatch. We probe them in order, then surface a clear error
+        with the recommended fallback if none are present.
 
-            from hermes.mcp import call_mcp
+        Known shapes (probed in order):
+        1. `hermes.mcp.call_mcp(server, tool, args)` (async)
+        2. `hermes.tools.mcp_dispatch.call(server, tool, args)` (async)
+        3. `hermes.runtime.get_mcp("taikai").call(tool, args)` (async)
+
+        If none resolve, raise with a useful message pointing at the
+        graphql fallback.
+        """
+        last_err: Exception | None = None
+
+        # Path 1: hermes.mcp.call_mcp
+        try:
+            from hermes.mcp import call_mcp  # type: ignore
+        except Exception as e:
+            last_err = e
+        else:
             return await call_mcp("taikai", tool_name, args)
 
-        Until that's confirmed, this raises NotImplementedError so the user
-        can see the failure mode and switch to HACKCLAW_TAIKAI_VIA=graphql.
-        """
-        raise NotImplementedError(
-            "MCP route not yet wired to Hermes's MCP-dispatch API. "
-            "Set HACKCLAW_TAIKAI_VIA=graphql as a fallback. "
-            f"(Wanted to call taikai.{tool_name} with {list(args.keys())})"
+        # Path 2: hermes.tools.mcp_dispatch.call
+        try:
+            from hermes.tools.mcp_dispatch import call as mcp_call  # type: ignore
+        except Exception as e:
+            last_err = e
+        else:
+            return await mcp_call("taikai", tool_name, args)
+
+        # Path 3: hermes.runtime.get_mcp
+        try:
+            from hermes.runtime import get_mcp  # type: ignore
+        except Exception as e:
+            last_err = e
+        else:
+            client = get_mcp("taikai")
+            return await client.call(tool_name, args)
+
+        raise RuntimeError(
+            "TAIKAI MCP route is unreachable from this Hermes install. "
+            "None of the known Hermes MCP-dispatch entry points resolved. "
+            "Set HACKCLAW_TAIKAI_VIA=graphql with TAIKAI_TOKEN to use the "
+            "GraphQL fallback. "
+            f"(Wanted: taikai.{tool_name} with keys {list(args.keys())}). "
+            f"Last import error: {last_err!r}"
         )
 
     # ---------- GraphQL route ----------
@@ -191,10 +223,13 @@ class TaikaiPlatform(HackathonPlatform):
                 "challengeId": cid,
                 "name": draft.name,
                 "teaser": draft.teaser,
-                "industries": None,
-                "members": None,
             })
-            return data["createProject"]["id"]
+            # Tolerate two response shapes: {createProject: {id}} or {id}.
+            return (
+                data.get("createProject", {}).get("id")
+                or data.get("id")
+                or data["project"]["id"]
+            )
         else:
             mutation = """
             mutation Create($challengeId: String!, $name: String!, $teaser: String!) {
@@ -210,13 +245,10 @@ class TaikaiPlatform(HackathonPlatform):
 
     async def update_project(self, project_id: str, updates: ProjectUpdates) -> None:
         if self.route == "mcp":
-            await self._mcp_call("taikai_update_project", {
-                "projectId": project_id,
-                "description": updates.description_html,
-                "name": None,
-                "teaser": None,
-                "state": None,
-            })
+            args: dict = {"projectId": project_id}
+            if updates.description_html is not None:
+                args["description"] = updates.description_html
+            await self._mcp_call("taikai_update_project", args)
         else:
             mutation = """
             mutation Update($projectId: String!, $description: String) {
@@ -234,11 +266,12 @@ class TaikaiPlatform(HackathonPlatform):
             data = await self._mcp_call("taikai_update_project", {
                 "projectId": project_id,
                 "state": "ACTIVE",
-                "name": None,
-                "teaser": None,
-                "description": None,
             })
-            new_state = data["updateProject"]["state"]
+            new_state = (
+                data.get("updateProject", {}).get("state")
+                or data.get("state")
+                or "ACTIVE"
+            )
         else:
             mutation = """
             mutation Publish($projectId: String!) {

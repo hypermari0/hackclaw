@@ -1,40 +1,21 @@
-# HackClaw Hermes plugin manifest
+# HackClaw Hermes plugin manifest.
 #
-# Hermes loads this plugin from ~/.hermes/plugins/hackclaw/ (symlinked by install.sh).
-# Each tool is a Python module under tools/ that exports a `register` callable.
+# Hermes loads this plugin from ~/.hermes/plugins/hackclaw/. The plugin's
+# __init__.py defines a register(ctx) entry point that wires schemas to
+# handlers via ctx.register_tool().
+#
+# Manifest keys mirror upstream Hermes plugin conventions (see
+# plugins/spotify/plugin.yaml in NousResearch/hermes-agent for reference).
 
 name: hackclaw
 version: 0.2.0
-description: AI squads that claw their way to hackathon wins.
-homepage: https://github.com/hypermario/hackclaw
-license: MIT
-
-# Hermes plugin API compatibility. Pin to a known-good range.
-# Adjust to match your installed Hermes if the plugin loader complains.
-openclaw:
-  compat:
-    pluginApi: ">=1.0.0"
-  build:
-    openclawVersion: ">=2026.4.0"
-
-tools:
-  - module: hackclaw.tools.hackclaw_select_platform
-  - module: hackclaw.tools.hackclaw_get_brief
-  - module: hackclaw.tools.hackclaw_list_submissions
-  - module: hackclaw.tools.hackclaw_create_draft
-  - module: hackclaw.tools.hackclaw_update_project
-  - module: hackclaw.tools.hackclaw_submit
-
-# Slash commands this plugin registers
-slashCommands:
-  - name: hackathon
-    description: Run the HackClaw squad against a hackathon URL
-    handler: skills/hackclaw/squad
-
-# MCP sources this plugin can route to. The TAIKAI source must be configured
-# separately via `hermes mcp add taikai`. This entry just declares the dependency.
-mcpDependencies:
-  - name: taikai
-    optional: true
-    purpose: Native TAIKAI integration for the TaikaiPlatform adapter
-    fallback: HACKCLAW_TAIKAI_VIA=graphql with TAIKAI_TOKEN
+description: "AI squads that claw their way to hackathon wins. Six skills (Strategist, PM, Dev, Designer, Storyteller, Submitter), a pluggable hackathon-platform protocol, TAIKAI native via MCP."
+author: Mario Alves
+kind: backend
+provides_tools:
+  - hackclaw_select_platform
+  - hackclaw_get_brief
+  - hackclaw_list_submissions
+  - hackclaw_create_draft
+  - hackclaw_update_project
+  - hackclaw_submit

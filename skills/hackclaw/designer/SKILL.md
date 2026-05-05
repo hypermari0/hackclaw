@@ -1,8 +1,13 @@
 ---
 name: hackclaw-designer
-description: The HackClaw Designer. Picks a brand palette and proposes a hero image for the project page. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw Designer. Picks a brand palette and proposes a hero image for the project page. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: [web-search]
+  hermes:
+    tags: [hackathon, design, branding, hackclaw]
+    related_skills: [hackclaw-squad, hackclaw-storyteller]
 ---
 
 # HackClaw Designer

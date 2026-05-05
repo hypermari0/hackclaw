@@ -1,9 +1,13 @@
 ---
 name: hackclaw-squad
-description: Run the HackClaw squad against a hackathon URL. Drives the full pipeline from brief to submission. Use this skill when the user asks to participate in, win, or submit to a hackathon, or when they invoke /hackathon run.
+description: "Run the HackClaw squad against a hackathon URL. Drives the full pipeline from brief to submission. Use when the user asks to participate in, win, or submit to a hackathon."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: [hackclaw, claude-code, web-search]
-  subagents: [hackclaw-strategist, hackclaw-pm, hackclaw-dev, hackclaw-designer, hackclaw-storyteller, hackclaw-submitter]
+  hermes:
+    tags: [hackathon, orchestrator, squad, hackclaw, taikai, multi-agent]
+    related_skills: [hackclaw-strategist, hackclaw-pm, hackclaw-dev, hackclaw-designer, hackclaw-storyteller, hackclaw-submitter, claude-code]
 ---
 
 # HackClaw Squad

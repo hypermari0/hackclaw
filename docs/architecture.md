@@ -44,7 +44,7 @@ The orchestrator is markdown. Hermes does the rest.
 
 ## The plugin
 
-`plugin/hackclaw/` registers six tools with Hermes:
+`plugin/hackclaw/__init__.py` exposes `register(ctx)`. Hermes calls it once at startup; we wire each tool with `ctx.register_tool(name, schema, handler)`. Six tools register:
 
 | Tool | Job |
 |------|-----|
@@ -123,8 +123,10 @@ skills/hackclaw/
 
 plugin/hackclaw/
 ├── plugin.yaml               # plugin manifest
+├── __init__.py               # register(ctx) entry point
 ├── tools/
 │   ├── __init__.py
+│   ├── _runtime.py           # async-to-sync bridge + adapter selection
 │   ├── hackclaw_select_platform.py
 │   ├── hackclaw_get_brief.py
 │   ├── hackclaw_list_submissions.py

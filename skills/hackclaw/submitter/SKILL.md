@@ -1,8 +1,13 @@
 ---
 name: hackclaw-submitter
-description: The HackClaw Submitter. Creates or updates a draft project on the hackathon platform. Does NOT publish. The orchestrator handles the approval flow and the final publish call. Spawned as a subagent by hackclaw-squad. Do not invoke directly.
+description: "HackClaw Submitter. Creates or updates a draft project on the hackathon platform. Does NOT publish. The orchestrator handles approval and the final publish call. Delegated to by hackclaw-squad."
+version: 0.2.0
+author: HackClaw + Mario Alves
+license: MIT
 metadata:
-  toolsets: [hackclaw]
+  hermes:
+    tags: [hackathon, submission, draft, hackclaw, taikai]
+    related_skills: [hackclaw-squad, hackclaw-storyteller]
 ---
 
 # HackClaw Submitter
@@ -21,20 +26,15 @@ You DO NOT publish. The orchestrator handles the approval prompt and the final `
 
 ## What you do
 
-### Case A: HACKCLAW_TARGET_PROJECT_ID is set
-
-This is the recursive-demo path. The DRAFT project already exists. Skip creation:
-
-1. Call `hackclaw_update_project(project_id=HACKCLAW_TARGET_PROJECT_ID, description_html=<project_page_html>, repo_url=<repo_url>, deploy_url=<deploy_url>)`.
-
-### Case B: HACKCLAW_TARGET_PROJECT_ID is not set
-
-The standard path. Create then update:
+The pipeline is the same in both paths: the `hackclaw_create_draft` tool is
+idempotent. If `HACKCLAW_TARGET_PROJECT_ID` is set, it returns that ID
+without creating anything (the recursive-demo path). Otherwise it creates a
+fresh DRAFT.
 
 1. Derive a project name from the chosen angle (4 words max, title case, ≤80 chars).
 2. Use the Strategist's `demo_pitch` as the teaser (truncated to ≤200 chars).
-3. Call `hackclaw_create_draft(hackathon_url=<url>, name=<name>, teaser=<teaser>)`. Capture the returned `project_id`.
-4. Call `hackclaw_update_project(project_id=<id>, description_html=<project_page_html>, repo_url=<repo_url>, deploy_url=<deploy_url>)`.
+3. Call `hackclaw_create_draft(hackathon_url=<url>, name=<name>, teaser=<teaser>)`. Capture the returned `project_id`. If the response contains `reused_existing: true`, you're on the recursive-demo path.
+4. Call `hackclaw_update_project(project_id=<id>, description_html=<project_page_html>, repo_url=<repo_url>, deploy_url=<deploy_url>, hackathon_url=<url>)`.
 
 ## Output contract
 
