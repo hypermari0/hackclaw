@@ -478,6 +478,20 @@ footer ul li { padding: 4px 0; font-family: var(--mono); }
 
   .desktop-only { display: none !important; }
   .mobile-only { display: block; }
+
+  /* shell command blocks wrap so URLs and long lines stay in viewport */
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* recursive section button takes full container width to avoid overflow */
+  .recursive .btn {
+    display: flex;
+    width: 100%;
+    letter-spacing: 1.5px;
+  }
 }
 
 /* phones */
