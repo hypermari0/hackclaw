@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HackClaw — AI squads that claw their way to hackathon wins</title>
+  <meta name="description" content="A Hermes Agent plugin pack. Six skills, one pluggable hackathon-platform protocol, an orchestrator with a built-in approval gate before publish." />
+  <meta property="og:title" content="HackClaw" />
+  <meta property="og:description" content="AI squads that claw their way to hackathon wins. A Hermes Agent plugin pack." />
+  <meta property="og:image" content="/cover.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/cover.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/profile.svg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/">
+      <img src="/profile.svg" alt="" width="32" height="32" />
+      <span>HACKCLAW</span>
+    </a>
+    <nav>
+      <a href="#squad">Squad</a>
+      <a href="#how">How it works</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/hypermari0/hackclaw" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="kicker">A Hermes Agent plugin pack</p>
+        <h1>AI squads that claw their way to <span class="accent">hackathon wins</span>.</h1>
+        <p class="lede">
+          Six hackathon-shaped skills. A pluggable platform protocol. An orchestrator
+          with a human approval gate before publish. Drop it into your Hermes install,
+          point it at a hackathon URL, and ship.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/hypermari0/hackclaw" target="_blank" rel="noopener">View the repo</a>
+          <a class="btn ghost" href="#install">Install in 30 seconds</a>
+        </div>
+        <p class="subnote">
+          Built for the recursive flex. HackClaw submitted itself to
+          <a href="https://taikai.network/layerx/hackathons/hacklayer4-1-mcp-edition/projects/cmosopzb3007xgbu2fl9d7t9t" target="_blank" rel="noopener">Hacklayer 4_1</a>.
+        </p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="/cover.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="strip">
+      <ul>
+        <li><span class="dot"></span>Six skills, one orchestrator</li>
+        <li><span class="dot"></span>TAIKAI native via MCP</li>
+        <li><span class="dot"></span>Browser fallback in v0.3</li>
+        <li><span class="dot"></span>Approval gate before publish</li>
+        <li><span class="dot"></span>MIT licensed</li>
+      </ul>
+    </section>
+
+    <section id="squad" class="squad">
+      <h2>The squad</h2>
+      <p class="section-lede">
+        Three roles collapse. Twelve roles thrash on coordination. Six is the sweet spot.
+      </p>
+      <div class="grid">
+        <article>
+          <h3>Strategist</h3>
+          <p>Reads the brief, scouts existing submissions, picks the angle most likely to win.</p>
+        </article>
+        <article>
+          <h3>PM</h3>
+          <p>Scopes the MVP, enforces the time budget, kills scope creep.</p>
+        </article>
+        <article>
+          <h3>Dev</h3>
+          <p>Writes the code, ships to Vercel. Delegates to Hermes's bundled claude-code skill.</p>
+        </article>
+        <article>
+          <h3>Designer</h3>
+          <p>Brand palette, hero image, project page hero.</p>
+        </article>
+        <article>
+          <h3>Storyteller</h3>
+          <p>Project page HTML, README, demo script.</p>
+        </article>
+        <article>
+          <h3>Submitter</h3>
+          <p>Creates the draft, fills the form, awaits human approval. Never auto-publishes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <h2>How it works</h2>
+      <p class="section-lede">
+        The orchestrator is a markdown skill, not orchestration code. The plugin is six
+        tools wired to Hermes via a single <code>register(ctx)</code> call.
+      </p>
+
+      <div class="how-cols">
+        <div class="how-col">
+          <h3>The plugin</h3>
+          <pre><code>plugin/hackclaw/
+├── plugin.yaml
+├── __init__.py        # register(ctx) entry point
+├── tools/
+│   ├── hackclaw_select_platform.py
+│   ├── hackclaw_get_brief.py
+│   ├── hackclaw_list_submissions.py
+│   ├── hackclaw_create_draft.py
+│   ├── hackclaw_update_project.py
+│   └── hackclaw_submit.py
+└── platforms/
+    ├── base.py        # HackathonPlatform protocol
+    ├── taikai.py      # MCP + GraphQL routes
+    └── browser.py     # v0.3 stub</code></pre>
+        </div>
+
+        <div class="how-col">
+          <h3>The pipeline</h3>
+          <pre><code>hackathon URL
+     │
+     ▼
+ Strategist ── (your approval) ──▶ PM ──▶ Dev
+                                            │
+                                            ▼
+                              Designer  ┐
+                                        ├──▶ Submitter
+                              Storyteller┘
+                                            │
+                                            ▼
+                                  (your approval)
+                                            │
+                                            ▼
+                                  ACTIVE on platform</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="install">
+      <h2>Install</h2>
+      <p class="section-lede">
+        Prerequisite: a working <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">Hermes Agent</a> install.
+      </p>
+
+      <pre><code>git clone https://github.com/hypermari0/hackclaw.git
+cd hackclaw
+./install.sh
+pip install -e .
+
+# pick one TAIKAI route
+export HACKCLAW_TAIKAI_VIA=mcp        # default, native via MCP
+# or
+export HACKCLAW_TAIKAI_VIA=graphql
+export TAIKAI_TOKEN=...
+
+hermes</code></pre>
+
+      <p>Then talk to it:</p>
+
+      <pre><code>&gt; hackathon run https://taikai.network/&lt;org&gt;/hackathons/&lt;slug&gt;</code></pre>
+
+      <p class="subnote">
+        Or just say it natural. <em>"win Hacklayer 4_1 for me."</em> Same skill.
+      </p>
+    </section>
+
+    <section class="recursive">
+      <h2>The recursive flex</h2>
+      <p>
+        HackClaw was built during Hacklayer 4_1 MCP Edition, an internal LayerX hackathon.
+        Every part of the TAIKAI submission was produced by HackClaw running on itself.
+        The plugin that updates the project description is the same plugin you are reading
+        about. The commit history and the TAIKAI update timestamps corroborate the claim.
+      </p>
+      <p>
+        <a class="btn ghost" href="https://taikai.network/layerx/hackathons/hacklayer4-1-mcp-edition/projects/cmosopzb3007xgbu2fl9d7t9t" target="_blank" rel="noopener">See the TAIKAI submission</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-cols">
+      <div>
+        <p class="brand">HACKCLAW</p>
+        <p class="muted">MIT. Built by <a href="https://github.com/hypermario" target="_blank" rel="noopener">Mario Alves</a> at <a href="https://layerx.xyz" target="_blank" rel="noopener">LayerX</a>.</p>
+      </div>
+      <div>
+        <p class="muted">Stack</p>
+        <ul class="muted">
+          <li>Hermes Agent (substrate)</li>
+          <li>Claude Sonnet 4.6</li>
+          <li>TAIKAI MCP</li>
+          <li>Vercel</li>
+        </ul>
+      </div>
+      <div>
+        <p class="muted">Links</p>
+        <ul class="muted">
+          <li><a href="https://github.com/hypermari0/hackclaw" target="_blank" rel="noopener">Repo</a></li>
+          <li><a href="https://github.com/hypermari0/hermes-agent" target="_blank" rel="noopener">Hermes</a></li>
+          <li><a href="https://taikai.network/layerx/hackathons/hacklayer4-1-mcp-edition" target="_blank" rel="noopener">Hacklayer 4_1</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
