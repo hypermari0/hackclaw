@@ -107,21 +107,7 @@
       <div class="how-cols">
         <div class="how-col">
           <h3>The plugin</h3>
-          <pre class="desktop-only"><code>plugin/hackclaw/
-├── plugin.yaml
-├── __init__.py        # register(ctx) entry point
-├── tools/
-│   ├── hackclaw_select_platform.py
-│   ├── hackclaw_get_brief.py
-│   ├── hackclaw_list_submissions.py
-│   ├── hackclaw_create_draft.py
-│   ├── hackclaw_update_project.py
-│   └── hackclaw_submit.py
-└── platforms/
-    ├── base.py        # HackathonPlatform protocol
-    ├── taikai.py      # MCP + GraphQL routes
-    └── browser.py     # v0.3 stub</code></pre>
-          <div class="tree mobile-only" aria-label="Plugin file structure">
+          <div class="tree" aria-label="Plugin file structure">
             <p class="tree-root"><code>plugin/hackclaw/</code></p>
             <ul>
               <li><code>plugin.yaml</code></li>
@@ -151,22 +137,7 @@
 
         <div class="how-col">
           <h3>The pipeline</h3>
-          <pre class="desktop-only"><code>hackathon URL
-     │
-     ▼
- Strategist ── (your approval) ──▶ PM ──▶ Dev
-                                            │
-                                            ▼
-                              Designer  ┐
-                                        ├──▶ Submitter
-                              Storyteller┘
-                                            │
-                                            ▼
-                                  (your approval)
-                                            │
-                                            ▼
-                                  ACTIVE on platform</code></pre>
-          <img class="mobile-only pipeline-img" src="/screenshot-pipeline.svg" alt="Pipeline: hackathon URL flows through Strategist, an approval gate, PM, Dev, Designer plus Storyteller, Submitter, a second approval gate, then ACTIVE submission." />
+          <img class="pipeline-img" src="/screenshot-pipeline.svg" alt="Pipeline: hackathon URL flows through Strategist, an approval gate, PM, Dev, Designer plus Storyteller, Submitter, a second approval gate, then ACTIVE submission." />
         </div>
       </div>
     </section>

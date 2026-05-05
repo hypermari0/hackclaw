@@ -320,10 +320,15 @@ section h2 {
   gap: 24px;
 }
 
-/* responsive switches */
-.mobile-only { display: none; }
+/* grid items must be allowed to shrink below their content's intrinsic
+   width, otherwise wide SVG images push the column past the viewport. */
+.how-col,
+.foot-cols > div,
+.squad article {
+  min-width: 0;
+}
 
-/* mobile tree (plugin structure on phones) */
+/* plugin file tree, used at every viewport */
 .tree {
   background: var(--carbon-2);
   border: 1px solid var(--carbon-3);
@@ -376,9 +381,10 @@ section h2 {
   margin-left: 4px;
 }
 
-/* mobile pipeline image */
+/* pipeline image, used at every viewport */
 .pipeline-img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border: 1px solid var(--carbon-3);
@@ -475,9 +481,6 @@ footer ul li { padding: 4px 0; font-family: var(--mono); }
   .strip ul { grid-template-columns: repeat(2, 1fr); }
   .strip li { font-size: 12px; }
   .squad, .how, .install, .recursive { padding: 48px 0; }
-
-  .desktop-only { display: none !important; }
-  .mobile-only { display: block; }
 
   /* shell command blocks wrap so URLs and long lines stay in viewport */
   pre {

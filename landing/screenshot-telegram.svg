@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" width="720" height="900" role="img" aria-label="Telegram conversation with the HackClaw squad">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Telegram conversation with the HackClaw squad">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0B0B0F"/>
