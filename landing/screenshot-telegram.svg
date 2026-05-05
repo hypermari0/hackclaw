@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" width="720" height="900" role="img" aria-label="Telegram conversation with the HackClaw squad">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B0B0F"/>
+      <stop offset="100%" stop-color="#15151D"/>
+    </linearGradient>
+    <linearGradient id="claw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF5560"/>
+      <stop offset="100%" stop-color="#FF3B47"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feOffset dy="4" in="b" result="o"/>
+      <feComponentTransfer in="o" result="t"><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
+      <feMerge><feMergeNode in="t"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="720" height="900" fill="url(#bg)"/>
+
+  <!-- phone frame -->
+  <g transform="translate(80,40)" filter="url(#shadow)">
+    <rect width="560" height="820" rx="42" fill="#0F0F16" stroke="#262631" stroke-width="2"/>
+
+    <!-- header -->
+    <rect x="2" y="2" width="556" height="86" rx="40" fill="#15151D"/>
+    <rect x="2" y="48" width="556" height="40" fill="#15151D"/>
+    <circle cx="48" cy="46" r="22" fill="#0B0B0F" stroke="#FF3B47" stroke-width="2"/>
+    <g stroke="url(#claw)" stroke-width="3" stroke-linecap="round" transform="translate(48,46)">
+      <line x1="-9" y1="-9" x2="3" y2="3"/>
+      <line x1="-5" y1="-9" x2="7" y2="3"/>
+      <line x1="-1" y1="-9" x2="11" y2="3"/>
+    </g>
+    <text x="86" y="42" font-family="ui-monospace, Menlo, monospace" font-size="15" font-weight="700" fill="#F4F4F0" letter-spacing="2">HERMES AGENT</text>
+    <g font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#00F0B5">
+      <circle cx="86" cy="58" r="3" fill="#00F0B5"/>
+      <text x="96" y="62" letter-spacing="1">online</text>
+    </g>
+
+    <!-- USER 1 -->
+    <g transform="translate(150,120)">
+      <rect width="380" height="48" rx="14" fill="#FF3B47"/>
+      <text x="20" y="30" font-family="-apple-system, Inter, sans-serif" font-size="15" fill="#fff">win Hacklayer 4_1 for me</text>
+    </g>
+    <text x="530" y="184" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#80808E">14:02</text>
+
+    <!-- AGENT 1 -->
+    <g transform="translate(30,200)">
+      <rect width="420" height="74" rx="14" fill="#1F1F28"/>
+      <text x="20" y="30" font-family="-apple-system, Inter, sans-serif" font-size="15" fill="#F4F4F0">on it. spinning up the squad.</text>
+      <text x="20" y="55" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="#00F0B5">[STRATEGIST] reading brief…</text>
+    </g>
+    <text x="30" y="290" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#80808E">14:02</text>
+
+    <!-- AGENT 2 -->
+    <g transform="translate(30,310)">
+      <rect width="460" height="118" rx="14" fill="#1F1F28"/>
+      <text x="20" y="30" font-family="-apple-system, Inter, sans-serif" font-size="15" fill="#F4F4F0">strategist done. proposed angle:</text>
+      <text x="20" y="56" font-family="-apple-system, Inter, sans-serif" font-size="14" fill="#C9C9D2" font-style="italic">"AI agents that win hackathons, submitted by an AI agent that won this hackathon."</text>
+      <text x="20" y="98" font-family="ui-monospace, Menlo, monospace" font-size="12" fill="#FF5560">approve? [y/n]</text>
+    </g>
+    <text x="30" y="444" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#80808E">14:04</text>
+
+    <!-- USER 2 -->
+    <g transform="translate(450,464)">
+      <rect width="80" height="40" rx="14" fill="#FF3B47"/>
+      <text x="40" y="26" text-anchor="middle" font-family="-apple-system, Inter, sans-serif" font-size="15" fill="#fff">y</text>
+    </g>
+
+    <!-- AGENT 3 (progress) -->
+    <g transform="translate(30,520)" font-family="ui-monospace, Menlo, monospace" font-size="12">
+      <rect width="500" height="148" rx="14" fill="#1F1F28"/>
+      <text x="20" y="28" fill="#00F0B5">[PM]         scoped MVP. budget: 6h.</text>
+      <text x="20" y="50" fill="#00F0B5">[DEV]        repo created. shipping to vercel…</text>
+      <text x="20" y="72" fill="#00F0B5">[DESIGNER]   palette locked. claw red, mint terminal.</text>
+      <text x="20" y="94" fill="#00F0B5">[STORYTELLER] page draft ready.</text>
+      <text x="20" y="116" fill="#FF5560">[SUBMITTER]   DRAFT filled. ship it?</text>
+      <text x="20" y="136" fill="#80808E">─ 24m elapsed ─────────────────</text>
+    </g>
+    <text x="30" y="690" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#80808E">14:28</text>
+
+    <!-- USER 3 -->
+    <g transform="translate(370,710)">
+      <rect width="160" height="42" rx="14" fill="#FF3B47"/>
+      <text x="80" y="28" text-anchor="middle" font-family="-apple-system, Inter, sans-serif" font-size="15" fill="#fff">ship it</text>
+    </g>
+
+    <!-- AGENT 4 final -->
+    <g transform="translate(30,768)">
+      <rect width="500" height="38" rx="14" fill="#1F1F28"/>
+      <text x="20" y="25" font-family="-apple-system, Inter, sans-serif" font-size="14" fill="#00F0B5">submitted. ACTIVE on TAIKAI. ✓</text>
+    </g>
+  </g>
+</svg>

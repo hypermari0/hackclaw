@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="HackClaw squad pipeline">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B0B0F"/>
+      <stop offset="100%" stop-color="#15151D"/>
+    </linearGradient>
+    <linearGradient id="claw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF5560"/>
+      <stop offset="100%" stop-color="#FF3B47"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="#FF3B47"/>
+    </marker>
+    <marker id="arrow-mint" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L12 6 L0 12 z" fill="#00F0B5"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <!-- grid -->
+  <g stroke="#1F1F28" stroke-width="1" opacity="0.6">
+    <path d="M0 100 H1200 M0 200 H1200 M0 300 H1200 M0 400 H1200 M0 500 H1200 M0 600 H1200"/>
+    <path d="M100 0 V700 M200 0 V700 M300 0 V700 M400 0 V700 M500 0 V700 M600 0 V700 M700 0 V700 M800 0 V700 M900 0 V700 M1000 0 V700 M1100 0 V700"/>
+  </g>
+
+  <!-- title -->
+  <g font-family="ui-monospace, Menlo, monospace" fill="#F4F4F0">
+    <text x="60" y="62" font-size="14" letter-spacing="3" fill="#00F0B5">HACKCLAW SQUAD</text>
+    <text x="60" y="100" font-size="32" font-weight="800" letter-spacing="-1" fill="#F4F4F0">six skills, one orchestrator, one approval gate.</text>
+  </g>
+
+  <!-- INPUT -->
+  <g transform="translate(60,180)">
+    <rect width="200" height="78" rx="10" fill="#15151D" stroke="#262631" stroke-width="2"/>
+    <text x="20" y="32" font-family="ui-monospace, Menlo, monospace" font-size="11" letter-spacing="2" fill="#80808E">INPUT</text>
+    <text x="20" y="58" font-family="-apple-system, Inter, sans-serif" font-size="16" font-weight="700" fill="#F4F4F0">hackathon URL</text>
+  </g>
+
+  <!-- SQUAD ROLES -->
+  <g font-family="ui-monospace, Menlo, monospace">
+    <!-- Strategist -->
+    <g transform="translate(310,180)">
+      <rect width="170" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">01 STRATEGIST</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">picks the angle</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">most likely to win</text>
+    </g>
+
+    <!-- Approval gate 1 -->
+    <g transform="translate(530,180)">
+      <rect width="120" height="78" rx="10" fill="#0B0B0F" stroke="#00F0B5" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="14" y="28" font-size="10" letter-spacing="2" fill="#00F0B5">HUMAN ✓</text>
+      <text x="14" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#F4F4F0">approve angle</text>
+    </g>
+
+    <!-- PM -->
+    <g transform="translate(700,180)">
+      <rect width="170" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">02 PM</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">scopes the MVP</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">kills scope creep</text>
+    </g>
+
+    <!-- Dev -->
+    <g transform="translate(920,180)">
+      <rect width="220" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">03 DEV</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">writes code, ships to Vercel</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">via claude-code skill</text>
+    </g>
+
+    <!-- Designer -->
+    <g transform="translate(310,360)">
+      <rect width="170" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">04 DESIGNER</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">brand, palette,</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">hero, cover</text>
+    </g>
+
+    <!-- Storyteller -->
+    <g transform="translate(530,360)">
+      <rect width="180" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">05 STORYTELLER</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">project page HTML</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">README, demo script</text>
+    </g>
+
+    <!-- Submitter -->
+    <g transform="translate(760,360)">
+      <rect width="180" height="78" rx="10" fill="#15151D" stroke="#FF3B47" stroke-width="2"/>
+      <text x="16" y="28" font-size="11" letter-spacing="2" fill="#FF3B47">06 SUBMITTER</text>
+      <text x="16" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">fills DRAFT</text>
+      <text x="16" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">awaits approval</text>
+    </g>
+
+    <!-- Approval gate 2 -->
+    <g transform="translate(990,360)">
+      <rect width="150" height="78" rx="10" fill="#0B0B0F" stroke="#00F0B5" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="14" y="28" font-size="10" letter-spacing="2" fill="#00F0B5">HUMAN ✓</text>
+      <text x="14" y="52" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#F4F4F0">"ship it"</text>
+    </g>
+
+    <!-- OUTPUT -->
+    <g transform="translate(490,540)">
+      <rect width="220" height="78" rx="10" fill="#15151D" stroke="#00F0B5" stroke-width="2"/>
+      <text x="20" y="28" font-size="11" letter-spacing="2" fill="#00F0B5">OUTPUT</text>
+      <text x="20" y="52" font-family="-apple-system, Inter, sans-serif" font-size="14" font-weight="700" fill="#F4F4F0">ACTIVE submission</text>
+      <text x="20" y="68" font-family="-apple-system, Inter, sans-serif" font-size="13" fill="#C9C9D2">+ deploy URL + repo</text>
+    </g>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="url(#claw)" stroke-width="2" fill="none">
+    <line x1="260" y1="219" x2="306" y2="219" marker-end="url(#arrow)"/>
+    <line x1="480" y1="219" x2="526" y2="219" marker-end="url(#arrow)"/>
+    <line x1="650" y1="219" x2="696" y2="219" marker-end="url(#arrow)"/>
+    <line x1="870" y1="219" x2="916" y2="219" marker-end="url(#arrow)"/>
+
+    <!-- Dev splits to row 2 -->
+    <path d="M1030 258 L1030 320 L395 320 L395 356" marker-end="url(#arrow)"/>
+    <path d="M1030 258 L1030 320 L620 320 L620 356" marker-end="url(#arrow)"/>
+
+    <!-- Designer + Storyteller -> Submitter -->
+    <line x1="480" y1="399" x2="756" y2="399" stroke-dasharray="3 3"/>
+    <line x1="710" y1="399" x2="756" y2="399" marker-end="url(#arrow)"/>
+    <!-- Submitter -> approval -->
+    <line x1="940" y1="399" x2="986" y2="399" marker-end="url(#arrow)"/>
+    <!-- approval -> output -->
+    <path d="M1065 438 L1065 575 L714 575" stroke="#00F0B5" marker-end="url(#arrow-mint)"/>
+  </g>
+
+  <!-- footer credit -->
+  <g font-family="ui-monospace, Menlo, monospace" fill="#80808E">
+    <text x="60" y="660" font-size="12" letter-spacing="2">HACKCLAW.VERCEL.APP   ·   GITHUB.COM/HYPERMARI0/HACKCLAW   ·   MIT</text>
+  </g>
+</svg>
