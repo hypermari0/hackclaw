@@ -107,7 +107,7 @@
       <div class="how-cols">
         <div class="how-col">
           <h3>The plugin</h3>
-          <pre><code>plugin/hackclaw/
+          <pre class="desktop-only"><code>plugin/hackclaw/
 ├── plugin.yaml
 ├── __init__.py        # register(ctx) entry point
 ├── tools/
@@ -121,11 +121,37 @@
     ├── base.py        # HackathonPlatform protocol
     ├── taikai.py      # MCP + GraphQL routes
     └── browser.py     # v0.3 stub</code></pre>
+          <div class="tree mobile-only" aria-label="Plugin file structure">
+            <p class="tree-root"><code>plugin/hackclaw/</code></p>
+            <ul>
+              <li><code>plugin.yaml</code></li>
+              <li><code>__init__.py</code> <span class="muted-inline">register(ctx) entry point</span></li>
+              <li>
+                <code>tools/</code>
+                <ul>
+                  <li><code>hackclaw_select_platform.py</code></li>
+                  <li><code>hackclaw_get_brief.py</code></li>
+                  <li><code>hackclaw_list_submissions.py</code></li>
+                  <li><code>hackclaw_create_draft.py</code></li>
+                  <li><code>hackclaw_update_project.py</code></li>
+                  <li><code>hackclaw_submit.py</code></li>
+                </ul>
+              </li>
+              <li>
+                <code>platforms/</code>
+                <ul>
+                  <li><code>base.py</code> <span class="muted-inline">HackathonPlatform protocol</span></li>
+                  <li><code>taikai.py</code> <span class="muted-inline">MCP + GraphQL routes</span></li>
+                  <li><code>browser.py</code> <span class="muted-inline">v0.3 stub</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="how-col">
           <h3>The pipeline</h3>
-          <pre><code>hackathon URL
+          <pre class="desktop-only"><code>hackathon URL
      │
      ▼
  Strategist ── (your approval) ──▶ PM ──▶ Dev
@@ -140,6 +166,7 @@
                                             │
                                             ▼
                                   ACTIVE on platform</code></pre>
+          <img class="mobile-only pipeline-img" src="/screenshot-pipeline.svg" alt="Pipeline: hackathon URL flows through Strategist, an approval gate, PM, Dev, Designer plus Storyteller, Submitter, a second approval gate, then ACTIVE submission." />
         </div>
       </div>
     </section>
