@@ -156,7 +156,7 @@ MIT. Use it, fork it, ship with it.
 
 ## Built by
 
-[Mario Alves](https://github.com/hypermario) at [LayerX](https://layerx.xyz). Part of the LayerX studio family alongside [TAIKAI](https://taikai.network), Ardaven, and RayTrade Studio.
+[Mario Alves](https://github.com/hypermario) at [LayerX](https://layerx.xyz). Part of the LayerX studio family alongside [TAIKAI](https://taikai.network), Ardaven, and The Garden.
 
 ## Acknowledgments
 
