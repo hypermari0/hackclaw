@@ -34,7 +34,7 @@ No skill-to-skill dialogue. State flows through Hermes session memory. Each skil
 2. Call `hackclaw_get_brief(url)` and `hackclaw_list_submissions(url)`
 3. Spawn `strategist` as a subagent via Hermes ACP, passing the brief
 4. Spawn `pm` with the strategist's output
-5. Spawn `dev` with the plan (Dev itself delegates to Hermes's `claude-code` subagent for the actual coding)
+5. Spawn `dev` with the plan (Dev itself delegates to Hermes's `devstral` subagent, powered by Mistral Devstral, for the actual coding)
 6. Parallel-spawn `designer` and `storyteller` once Dev returns a deploy URL
 7. Spawn `submitter` with everything assembled, which calls `hackclaw_create_draft` and `hackclaw_update_project`
 8. Issue an approval prompt to the user via the active gateway

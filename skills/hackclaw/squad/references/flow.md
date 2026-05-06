@@ -11,7 +11,7 @@
                 └──────┬──────┘
                        ▼
                 ┌─────────────┐
-                │     Dev     │  delegates to claude-code subagent
+                │     Dev     │  delegates to devstral subagent
                 └──────┬──────┘
                        ▼
               ┌────────┴────────┐

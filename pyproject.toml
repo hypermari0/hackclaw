@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Mario Alves", email = "mario@layerx.xyz" }]
-keywords = ["hermes-agent", "ai", "agents", "hackathon", "mcp", "anthropic", "claude"]
+keywords = ["hermes-agent", "ai", "agents", "hackathon", "mcp", "mistral", "devstral"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "License :: OSI Approved :: MIT License",

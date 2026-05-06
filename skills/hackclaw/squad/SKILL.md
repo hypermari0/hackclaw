@@ -7,7 +7,7 @@ license: MIT
 metadata:
   hermes:
     tags: [hackathon, orchestrator, squad, hackclaw, taikai, multi-agent]
-    related_skills: [hackclaw-strategist, hackclaw-pm, hackclaw-dev, hackclaw-designer, hackclaw-storyteller, hackclaw-submitter, claude-code]
+    related_skills: [hackclaw-strategist, hackclaw-pm, hackclaw-dev, hackclaw-designer, hackclaw-storyteller, hackclaw-submitter, devstral]
 ---
 
 # HackClaw Squad
@@ -59,7 +59,7 @@ Spawn the `hackclaw-dev` subagent. Pass:
 - The build plan
 - A workspace path (`/tmp/hackclaw/{run_id}` is fine)
 
-The Dev subagent itself delegates to Hermes's `claude-code` subagent for the actual coding, so this phase may take significant time. Post a status update every 5 minutes while it runs.
+The Dev subagent itself delegates to Hermes's `devstral` subagent (Mistral Devstral) for the actual coding, so this phase may take significant time. Post a status update every 5 minutes while it runs.
 
 The Dev returns a JSON object with `repo_url` and `deploy_url`. Store both.
 

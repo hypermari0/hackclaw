@@ -18,7 +18,7 @@ hermes setup
 
 The setup wizard walks you through:
 
-- Provider selection (Anthropic for Sonnet 4.6 is the default for HackClaw)
+- Provider selection (Mistral for Medium 3.5 is the default for HackClaw)
 - API key configuration
 - Optional: Telegram bot token, Discord, Slack, etc. for the messaging gateway
 
@@ -123,7 +123,7 @@ Confirm `pip install -e .` ran cleanly. Check `~/.hermes/logs/` for plugin load 
 Try the GraphQL fallback: `export HACKCLAW_TAIKAI_VIA=graphql` and `export TAIKAI_TOKEN=<your-token>` before starting Hermes.
 
 **Squad runs but Dev never deploys.**
-The Dev skill delegates to Hermes's `claude-code` subagent. Confirm `claude` CLI is installed and available on your PATH (`npm i -g @anthropic-ai/claude-code`). Also confirm `GITHUB_TOKEN` and `VERCEL_TOKEN` are set.
+The Dev skill delegates to Hermes's `devstral` subagent (Mistral Devstral). Confirm the `devstral` CLI is installed and available on your PATH (`pip install devstral-cli`) and that `MISTRAL_API_KEY` is set. Also confirm `GITHUB_TOKEN` and `VERCEL_TOKEN` are set.
 
 **Telegram bot doesn't respond.**
 Make sure `hermes gateway` is running (not just `hermes`). The CLI is one mode; the gateway is another.

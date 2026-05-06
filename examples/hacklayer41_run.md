@@ -99,6 +99,6 @@ Pre-flight checklist:
 |---------|------------|
 | Hermes ACP subagent spawn errors | Inspect upstream Hermes built-in skills for working ACP examples; copy their pattern |
 | TAIKAI MCP route fails | Set `HACKCLAW_TAIKAI_VIA=graphql` and re-run |
-| Dev's claude-code subagent hangs | Cancel, reduce the build plan to a single static landing page, retry |
+| Dev's devstral subagent hangs | Cancel, reduce the build plan to a single static landing page, retry |
 | Vercel deploy errors | Have a pre-deployed fallback URL ready as a "what would have shipped" reference |
 | Telegram routing flakes during demo | Drop to CLI; same skills, same plugin, same recursive flex |

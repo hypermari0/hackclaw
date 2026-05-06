@@ -30,7 +30,7 @@ Credit and license to upstream:
 |-------|-----|
 | **Strategist** | Reads the brief, scouts existing submissions, picks the angle most likely to win |
 | **PM** | Scopes the MVP, enforces the time budget, kills scope creep |
-| **Dev** | Writes the code and deploys it (delegates to Hermes's bundled `claude-code` subagent) |
+| **Dev** | Writes the code and deploys it (delegates to a `devstral` coding subagent powered by Mistral Devstral) |
 | **Designer** | Brand, landing page, project page hero |
 | **Storyteller** | Demo script, README, project page copy |
 | **Submitter** | Records the demo, fills forms, hits submit |
@@ -109,7 +109,7 @@ Every word of that conversation, every tool call, and every subagent spawn is lo
                 └──────┬──────┘
                        ▼
                 ┌─────────────┐
-                │     Dev     │  delegates to claude-code subagent
+                │     Dev     │  delegates to devstral subagent
                 └──────┬──────┘
                        ▼
               ┌────────┴────────┐
@@ -142,7 +142,7 @@ The TAIKAI project page, the deploy URL, the README you're reading. All produced
 - v0.4: Auto-recorded demo videos via Browserbase
 - v0.5: Sponsor-track optimization, multi-objective scoring across prize tracks
 - v0.6: Hybrid mode, humans and agents collaborating inside the same submission
-- v0.7: Cost-aware model routing per agent role (Haiku for Designer + Submitter, Sonnet for Strategist + PM)
+- v0.7: Cost-aware model routing per agent role (Mistral Small for Designer + Submitter, Mistral Medium for Strategist + PM, Devstral for Dev)
 
 ## Contributing
 
@@ -161,5 +161,6 @@ MIT. Use it, fork it, ship with it.
 ## Acknowledgments
 
 - **Nous Research** for [Hermes Agent](https://github.com/NousResearch/hermes-agent), the substrate this is built on
-- **Anthropic** for Claude and the MCP standard that makes platform-agnostic agent integrations possible
+- **Mistral** for Mistral Medium 3.5 and Devstral, the brains of the squad
+- **Anthropic** for the MCP standard that makes platform-agnostic agent integrations possible
 - **TAIKAI** for being the reference hackathon platform and for shipping an MCP that made the recursive flex possible
